@@ -1,14 +1,11 @@
-body {
+.app-container {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  padding-top: 10%;
-}
-
-.quote-box {
-  text-align: center;
-  border: 1px solid grey;
-  margin: 0 auto;
-  width: 600px;
-  padding: 20px;
-  border-radius: 15px;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("./images/hugues-de-buyer-mimeure-lQPEChtLjUo-unsplash.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

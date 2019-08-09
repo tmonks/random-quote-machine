@@ -7,9 +7,11 @@ class App extends React.Component {
     super();
 
     this.state = {
-      quote: "something smart will go here",
-      author: "Smarty Pants"
+      quote: "The man who makes no mistakes does not usually make anything",
+      author: "E.J. Phelps"
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
@@ -17,12 +19,17 @@ class App extends React.Component {
   }
 
   render() {
+    let backgroundStyle = {
+      // backgroundImage: "url('./images/hugues-de-buyer-mimeure-lQPEChtLjUo-unsplash.jpg')"
+    };
     return (
-      <QuoteBox
-        quote={this.state.quote}
-        author={this.state.author}
-        handleClick={this.handleClick}
-      />
+      <div className="app-container" style={backgroundStyle}>
+        <QuoteBox
+          quote={this.state.quote}
+          author={this.state.author}
+          handleClick={this.handleClick}
+        />
+      </div>
     );
   }
 }
