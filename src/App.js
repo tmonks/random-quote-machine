@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import QuoteBox from "./QuoteBox";
 import fetchJsonp from "fetch-jsonp"
+import ReactFCCtest from "react-fcctest"
 
 class App extends React.Component {
   constructor() {
@@ -55,6 +56,7 @@ class App extends React.Component {
     };
     return (
       <div className="app-container" style={backgroundStyle}>
+        <ReactFCCtest />
         <QuoteBox
           quote={this.state.quote}
           author={this.state.author}
