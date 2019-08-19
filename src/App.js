@@ -38,7 +38,6 @@ class App extends React.Component {
     })
       .then(response => response.json())
       .then(json => {
-        console.log('parsed json', json)
         this.setState({ quote: json.quoteText, author: json.quoteAuthor })
       })
       .catch(error => {
@@ -51,11 +50,12 @@ class App extends React.Component {
   }
 
   render() {
-    let backgroundStyle = {
-      // backgroundImage: "url('./images/hugues-de-buyer-mimeure-lQPEChtLjUo-unsplash.jpg')"
-    };
+    const imageUrl = './images/art-background-blur-220072.jpg';
+    let styles={}
+    // let styles = { backgroundImage: "url(" + imageUrl + ")" };
+    // let styles = { backgroundColor: "gray" }
     return (
-      <div className="app-container" style={backgroundStyle}>
+      <div className="app-container" style={styles}>
         <ReactFCCtest />
         <QuoteBox
           quote={this.state.quote}
