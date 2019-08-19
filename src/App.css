@@ -8,4 +8,5 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: background-image 500ms ease-in-out;
 }
