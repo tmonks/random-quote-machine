@@ -46,7 +46,7 @@ class App extends React.Component {
       .then(response => response.json())
       .then(json => {
         this.setState({
-          quote: json.quoteText.replace("s/^s+|s+$/g", ""),
+          quote: json.quoteText.replace(/^\s+|\s+$/g, ""),
           author: json.quoteAuthor
         });
       })
