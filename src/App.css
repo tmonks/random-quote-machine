@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   /*  background-image: url("./images/art-background-blue-370799.jpg"); */
+  background-color: gray;
   display: flex;
   flex-direction: column;
   justify-content: center;

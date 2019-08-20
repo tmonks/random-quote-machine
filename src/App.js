@@ -30,22 +30,25 @@ class App extends React.Component {
   }
 
   handleClick() {
+    // calculate a new random index for the background image
+    const newBackgroundNum = Math.floor(
+      Math.random() * backgroundImages.length
+    );
+    this.setState({ backgroundNum: newBackgroundNum });
     this.updateQuote();
-    this.setState({
-      backgroundNum: Math.floor(Math.random() * backgroundImages.length)
-    });
   }
 
   updateQuote() {
     fetchJsonp(
       "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=callback",
-      {
-        jsonpCallback: "jsonp"
-      }
+      { jsonpCallback: "jsonp" }
     )
       .then(response => response.json())
       .then(json => {
-        this.setState({ quote: json.quoteText, author: json.quoteAuthor });
+        this.setState({
+          quote: json.quoteText.replace("s/^s+|s+$/g", ""),
+          author: json.quoteAuthor
+        });
       })
       .catch(error => {
         console.log("parsing failed", error);
@@ -53,6 +56,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    backgroundImages.forEach(background => {
+      const img = new Image();
+      img.src = "./images/" + background;
+      console.log("preloading img: " + img.src);
+    });
     this.updateQuote();
   }
 
