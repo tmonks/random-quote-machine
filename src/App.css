@@ -4,10 +4,13 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   /*  background-image: url("./images/art-background-blue-370799.jpg"); */
-  background-color: gray;
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: background-image 500ms ease-in-out;
+  transition: background-image 500ms linear;
 }

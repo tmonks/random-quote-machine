@@ -5,15 +5,12 @@ import fetchJsonp from "fetch-jsonp";
 import ReactFCCtest from "react-fcctest";
 
 const backgroundImages = [
-  "art-background-blue-370799.jpg",
-  "art-background-blur-220072.jpg",
-  "background-blur-blurred-949587.jpg",
-  "background-blur-bright-220067.jpg",
-  "backlit-chiemsee-dawn-1363876.jpg",
-  "blooming-blur-close-up-459059.jpg",
-  "blue-blur-color-932638.jpg",
-  "blurred-background-colors-daytime-1250260-01.jpg",
-  "hugues-de-buyer-mimeure-lQPEChtLjUo-unsplash.jpg"
+  "art-background-blue-370799-01.jpg",
+  "art-background-blur-220072-01.jpg",
+  "background-blur-bright-220067-01.jpg",
+  "backlit-chiemsee-dawn-1363876-01.jpg",
+  "blooming-blur-close-up-459059-01.jpg",
+  "blurred-background-colors-daytime-1250260-01.jpg"
 ];
 
 class App extends React.Component {
@@ -21,24 +18,23 @@ class App extends React.Component {
     super();
 
     this.state = {
-      quote: "The man who makes no mistakes does not usually make anything",
-      author: "E.J. Phelps",
-      backgroundNum: 0
+      quote: "...",
+      author: "",
+      backgroundNum: -1
     };
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    // calculate a new random index for the background image
-    const newBackgroundNum = Math.floor(
-      Math.random() * backgroundImages.length
-    );
-    this.setState({ backgroundNum: newBackgroundNum });
     this.updateQuote();
   }
 
   updateQuote() {
+    // calculate a new random index for the background image
+    const newBackgroundNum =
+      (this.state.backgroundNum + 1) % backgroundImages.length;
+
     fetchJsonp(
       "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=callback",
       { jsonpCallback: "jsonp" }
@@ -47,7 +43,8 @@ class App extends React.Component {
       .then(json => {
         this.setState({
           quote: json.quoteText.replace(/^\s+|\s+$/g, ""),
-          author: json.quoteAuthor
+          author: json.quoteAuthor,
+          backgroundNum: newBackgroundNum
         });
       })
       .catch(error => {

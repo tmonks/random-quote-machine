@@ -7,8 +7,14 @@ function QuoteBox(props) {
   return (
     <div id="quote-box">
       <div id="text-container">
-        <p id="text">&quot;{props.quote}&quot;</p>
-        <p id="author">- {props.author}</p>
+        <p id="text">
+          <span className="quote">&quot;</span>
+          {props.quote}
+          <span className="quote">&quot;</span>
+        </p>
+        <p id="author">
+          - {props.author.length > 0 ? props.author : "Anonymous"}
+        </p>
       </div>
       <a
         id="tweet-quote"
