@@ -1,6 +1,9 @@
 #quote-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  margin: 0 auto;
   width: 80%;
   color: white;
 }
@@ -9,14 +12,17 @@
   background: black;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 10px;
   margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 a,
 button {
   background-color: white;
-  color: black;
+  color: #444;
   border: none;
   padding: 15px;
   text-align: center;
@@ -25,6 +31,7 @@ button {
   border-radius: 5px;
   text-decoration: none;
   margin: 0 10px;
+  transition: all 0.5s ease 0s;
 }
 
 button:focus {
@@ -33,23 +40,34 @@ button:focus {
 
 a:hover,
 button:hover {
-  animation-name: background-color;
+  /* animation-name: background-color;
   animation-duration: 500ms;
   animation-fill-mode: forwards;
+  */
+  transition: all 0.5s ease 0s;
+  color: black;
+  background-color: #ddf;
   cursor: default;
 }
 
-@keyframes background-color {
-  100% {
-    background-color: lightskyblue;
-  }
-}
-
 #text {
-  font-size: 2em;
-  font-family: "Amatic SC", cursive;
+  font-size: 1.5em;
+  /* font-family: "Amatic SC", cursive; */
+  font-family: "Dosis", cursive;
+  margin: 0.5em 0;
+
+  /* black background behind text */
+  /*
+  background-color: black;
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  */
 }
 
 #author {
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: sans-serif;
+  margin: 0.5em 10% 0.5em 0;
+  text-align: right;
 }

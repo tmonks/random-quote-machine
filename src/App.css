@@ -9,8 +9,9 @@
   -o-background-size: cover;
   /*  background-image: url("./images/art-background-blue-370799.jpg"); */
   background-color: black;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
   justify-content: center;
+  align-content: center; */
+
   transition: background-image 500ms linear;
 }
