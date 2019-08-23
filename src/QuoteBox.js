@@ -2,18 +2,19 @@ import React from "react";
 import "./QuoteBox.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 
 function QuoteBox(props) {
   return (
     <div id="quote-box">
       <div id="text-container">
         <p id="text">
-          <span className="quote">&quot;</span>
-          {props.quote}
-          <span className="quote">&quot;</span>
+          {props.quote.length > 0 && <FontAwesomeIcon icon={faQuoteLeft} />}
+          {props.quote.length > 0 && " " + props.quote}
         </p>
         <p id="author">
-          - {props.author.length > 0 ? props.author : "Anonymous"}
+          {props.quote.length > 0 &&
+            (props.author.length > 0 ? "- " + props.author : "- Anonymous")}
         </p>
       </div>
       <a

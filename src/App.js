@@ -18,16 +18,12 @@ class App extends React.Component {
     super();
 
     this.state = {
-      quote: "...",
+      quote: "",
       author: "",
       backgroundNum: -1
     };
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.updateQuote();
+    this.updateQuote = this.updateQuote.bind(this);
   }
 
   updateQuote() {
@@ -53,12 +49,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    /*
     backgroundImages.forEach(background => {
       const img = new Image();
       img.src = "./images/" + background;
       console.log("preloading img: " + img.src);
     });
-    this.updateQuote();
+    */
+    //this.updateQuote();
   }
 
   render() {
@@ -70,16 +68,17 @@ class App extends React.Component {
         this.state.backgroundNum +
         ")"
     );
-    // let styles={}
+
     let styles = { backgroundImage: "url(" + imageUrl + ")" };
-    // let styles = { backgroundColor: "gray" }
+
     return (
       <div className="app-container" style={styles}>
         <ReactFCCtest />
         <QuoteBox
           quote={this.state.quote}
           author={this.state.author}
-          handleClick={this.handleClick}
+          isLoading={this.state.isLoading}
+          handleClick={this.updateQuote}
         />
       </div>
     );
