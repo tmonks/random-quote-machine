@@ -56,7 +56,7 @@ class App extends React.Component {
       console.log("preloading img: " + img.src);
     });
     */
-    //this.updateQuote();
+    this.updateQuote();
   }
 
   render() {
