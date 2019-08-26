@@ -17,6 +17,7 @@ function QuoteBox(props) {
             (props.author.length > 0 ? "- " + props.author : "- Anonymous")}
         </p>
       </div>
+
       <a
         id="tweet-quote"
         href={
@@ -27,7 +28,8 @@ function QuoteBox(props) {
         }
       >
         <FontAwesomeIcon icon={faTwitter} /> Tweet
-      </a>{" "}
+      </a>
+
       <button id="new-quote" onClick={props.handleClick}>
         New Quote
       </button>

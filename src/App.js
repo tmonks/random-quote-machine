@@ -49,25 +49,18 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    /*
+    // force browser to pre-download background images
     backgroundImages.forEach(background => {
       const img = new Image();
       img.src = "./images/" + background;
       console.log("preloading img: " + img.src);
     });
-    */
+
     this.updateQuote();
   }
 
   render() {
     const imageUrl = "./images/" + backgroundImages[this.state.backgroundNum];
-    console.log(
-      "setting background to: " +
-        imageUrl +
-        " (background num: " +
-        this.state.backgroundNum +
-        ")"
-    );
 
     let styles = { backgroundImage: "url(" + imageUrl + ")" };
 
@@ -77,7 +70,6 @@ class App extends React.Component {
         <QuoteBox
           quote={this.state.quote}
           author={this.state.author}
-          isLoading={this.state.isLoading}
           handleClick={this.updateQuote}
         />
       </div>
