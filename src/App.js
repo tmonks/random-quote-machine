@@ -4,6 +4,9 @@ import QuoteBox from "./QuoteBox";
 import fetchJsonp from "fetch-jsonp";
 import ReactFCCtest from "react-fcctest";
 
+// polyfill required since IE8/9/10/11 does not support Promises
+require('es6-promise').polyfill();
+
 const backgroundImages = [
   "art-background-blue-370799-01.jpg",
   "art-background-blur-220072-01.jpg",
