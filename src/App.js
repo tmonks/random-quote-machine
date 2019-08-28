@@ -8,12 +8,13 @@ import ReactFCCtest from "react-fcctest";
 require("es6-promise").polyfill();
 
 const backgroundImages = [
-  "art-background-blue-370799-01.jpg",
-  "art-background-blur-220072-01.jpg",
-  "background-blur-bright-220067-01.jpg",
-  "backlit-chiemsee-dawn-1363876-01.jpg",
-  "blooming-blur-close-up-459059-01.jpg",
-  "blurred-background-colors-daytime-1250260-01.jpg"
+  "africa-animal-animals-417142.jpg",
+  "austria-dawn-desktop-backgrounds-1323550.jpg",
+  "background-blur-bright-220067.jpg",
+  "backlit-chiemsee-dawn-1363876.jpg",
+  "blooming-blur-close-up-459059.jpg",
+  "clouds-dawn-horizon-33067.jpg",
+  "fog-foggy-lake-2649403.jpg"
 ];
 
 class App extends React.Component {
