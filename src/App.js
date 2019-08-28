@@ -24,7 +24,8 @@ class App extends React.Component {
     this.state = {
       quote: "",
       author: "",
-      backgroundNum: -1
+      backgroundNum: -1,
+      initialLoad: true
     };
 
     this.updateQuote = this.updateQuote.bind(this);
@@ -44,7 +45,8 @@ class App extends React.Component {
         this.setState({
           quote: json.quoteText.replace(/^\s+|\s+$/g, ""),
           author: json.quoteAuthor,
-          backgroundNum: newBackgroundNum
+          backgroundNum: newBackgroundNum,
+          initialLoad: false
         });
       })
       .catch(error => {
@@ -64,8 +66,10 @@ class App extends React.Component {
 
   render() {
     const imageUrl = "./images/" + backgroundImages[this.state.backgroundNum];
-
-    let styles = { backgroundImage: "url(" + imageUrl + ")" };
+    let styles = {};
+    if (!this.state.initialLoad) {
+      styles = { backgroundImage: "url(" + imageUrl + ")" };
+    }
 
     return (
       <div className="app-container" style={styles}>
@@ -74,6 +78,7 @@ class App extends React.Component {
           quote={this.state.quote}
           author={this.state.author}
           handleClick={this.updateQuote}
+          initialLoad={this.state.initialLoad}
         />
       </div>
     );
