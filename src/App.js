@@ -2,10 +2,7 @@ import React from "react";
 import "./App.css";
 import QuoteBox from "./QuoteBox";
 import fetchJsonp from "fetch-jsonp";
-import ReactFCCtest from "react-fcctest";
-
-// polyfill required since IE8/9/10/11 does not support Promises
-require("es6-promise").polyfill();
+// import ReactFCCtest from "react-fcctest";
 
 const backgroundImages = [
   "backlit-chiemsee-dawn-1363876.jpg",
@@ -33,8 +30,7 @@ class App extends React.Component {
 
   updateQuote() {
     // calculate a new random index for the background image
-    const newBackgroundNum =
-      (this.state.backgroundNum + 1) % backgroundImages.length;
+    const newBackgroundNum = (this.state.backgroundNum + 1) % backgroundImages.length;
 
     fetchJsonp(
       "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=callback",
@@ -73,7 +69,7 @@ class App extends React.Component {
 
     return (
       <div className="app-container" style={styles}>
-        <ReactFCCtest />
+        {/* <ReactFCCtest /> */}
         <QuoteBox
           quote={this.state.quote}
           author={this.state.author}
