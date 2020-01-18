@@ -12,6 +12,7 @@ function QuoteBox(props) {
       </div>
     );
   } else {
+    const author = props.author.length > 0 ? props.author : "Anonymous";
     return (
       <div id="quote-box">
         <div id="text-container">
@@ -19,20 +20,12 @@ function QuoteBox(props) {
             {props.quote.length > 0 && <FontAwesomeIcon icon={faQuoteLeft} />}
             {props.quote.length > 0 && " " + props.quote}
           </p>
-          <p id="author">
-            {props.quote.length > 0 &&
-              (props.author.length > 0 ? "- " + props.author : "- Anonymous")}
-          </p>
+          <p id="author">{props.quote.length > 0 && "- " + author}</p>
         </div>
 
         <a
           id="tweet-quote"
-          href={
-            "https://twitter.com/intent/tweet?text=" +
-            props.quote +
-            " -" +
-            props.author
-          }
+          href={'https://twitter.com/intent/tweet?text="' + props.quote + '"%0A-' + author}
         >
           <FontAwesomeIcon icon={faTwitter} /> Tweet
         </a>
